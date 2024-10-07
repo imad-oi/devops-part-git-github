@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { test } = require('./src/controllers/auth.controller');
 
+const { updateProduct } = require('./src/controllers/product.controller');
+
 const app = express();
 const port = 3000;
 
@@ -18,6 +20,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/auth/test',test)
+
+app.put('/products', updateProduct)
 
 // Start the server
 app.listen(port, () => {
