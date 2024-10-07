@@ -2,11 +2,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
-const { createProduct } = require('./src/controllers/product.controller');
-const { login } = require("./src/controllers/auth.controller");
-
-const { test, registerUser } = require('./src/controllers/auth.controller');
+const { createProduct, findList } = require('./src/controllers/product.controller');
+const { registerUser, login } = require('./src/controllers/auth.controller');
 
 
 const app = express();
@@ -27,10 +24,9 @@ app.get("/", (req, res) => {
 });
 
 app.post("/auth/login", login);
-app.post('/auth/test',test)
-app.post('/auth/register',registerUser)
-
-app.post('/products',createProduct)
+app.post('/auth/register', registerUser)
+app.post('/products', createProduct)
+app.get('/products', findList)
 
 // Start the server
 app.listen(port, () => {

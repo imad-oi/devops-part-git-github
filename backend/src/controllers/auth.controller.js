@@ -1,8 +1,7 @@
 const { User } = require("../models/User");
 
-export const test = async (req, res) => {};
 
-export const login = async (req, res) => {
+ const login = async (req, res) => {
   const { username, password } = req.body;
 
   try {
@@ -42,6 +41,6 @@ const registerUser = async (req, res) => {
 };
 
 module.exports = {
-    registerUser
+    registerUser, login
 };
 
