@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const { createProduct, findList, updateProduct } = require('./src/controllers/product.controller');
+const { createProduct, findList, updateProduct, deleteProduct } = require('./src/controllers/product.controller');
 const { registerUser, login } = require('./src/controllers/auth.controller');
 
 const app = express();
@@ -27,6 +27,7 @@ app.post('/auth/register', registerUser)
 app.post('/products', createProduct)
 app.get('/products', findList)
 app.put('/products', updateProduct)
+app.delete('/products', deleteProduct)
 
 // Start the server
 app.listen(port, () => {
