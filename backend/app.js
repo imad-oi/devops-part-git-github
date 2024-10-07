@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const { test } = require('./src/controllers/auth.controller');
 
 const app = express();
 const port = 3000;
@@ -15,6 +16,8 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
   res.send('Welcome to the E-commerce API');
 });
+
+app.post('/auth/test',test)
 
 // Start the server
 app.listen(port, () => {
