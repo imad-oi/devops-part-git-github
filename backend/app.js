@@ -11,6 +11,11 @@ mongoose.connect('mongodb://localhost/ecommerce', { useNewUrlParser: true, useUn
 // Middleware
 app.use(bodyParser.json());
 
+// Simple route
+app.get('/', (req, res) => {
+  res.send('Welcome to the E-commerce API');
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
